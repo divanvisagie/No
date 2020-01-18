@@ -31,19 +31,28 @@ class Temple {
 
 struct ContentView: View {
     @State var greetingText = "HelloWorld"
+    @State var start: CGFloat = 25.0
     let temple = Temple()
+    
     
     
     
     var body: some View {
         VStack {
-            CircularSliderView()
+            CircularSliderView(currentValue: $start)
+                .padding(.horizontal)
+                .frame(height: 300)
+                
+            Text("\(start) is the number")
+                //.padding(.top, -195.0)
+                //.position(x: 0, y: 0)
             Button(action: playGong) {
                 Text("Play Gong")
-               
             }
         }
     }
+    
+    
     
     func playGong() -> Void {
         
@@ -56,8 +65,13 @@ struct ContentView: View {
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .frame(width: 240, height: 420, alignment: .center)
+            .previewLayout(.sizeThatFits)
+        
     }
 }
+#endif
