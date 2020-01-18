@@ -36,20 +36,28 @@ struct ContentView: View {
     
     
     
-    
     var body: some View {
         VStack {
+            Spacer()
             CircularSliderView(currentValue: $start)
-                .padding(.horizontal)
-                .frame(height: 300)
+                .frame(height: 320)
+                .frame(width: 320)
                 
-            Text("\(start) is the number")
-                //.padding(.top, -195.0)
+            Text("\(start, specifier: "%.0f")")
+                .foregroundColor(Color("AppForeground"))
+                .padding(.vertical)
+                .padding(.top, -195.0)
                 //.position(x: 0, y: 0)
             Button(action: playGong) {
-                Text("Play Gong")
+                Image(systemName: "play")
+                    .frame(width: 60.0, height: 60.0)
+                    .accentColor(/*@START_MENU_TOKEN@*/Color("AppForeground")/*@END_MENU_TOKEN@*/)
+                   
             }
+           
+            Spacer()
         }
+        .background(/*@START_MENU_TOKEN@*/Color("Background")/*@END_MENU_TOKEN@*/)
     }
     
     
@@ -69,7 +77,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .frame(width: 240, height: 420, alignment: .center)
+            .frame(width: 360, height: 820, alignment: .center)
             .previewLayout(.sizeThatFits)
         
     }

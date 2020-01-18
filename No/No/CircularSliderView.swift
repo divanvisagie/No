@@ -22,23 +22,28 @@ struct CircularSliderView : UIViewRepresentable {
     //@Binding var currentValue: Int
    
     func makeUIView(context: Context) -> CircularSlider {
-          
+        
+        let selectedColor = UIColor(named: "AppForeground") ?? .black;
+        let sliderBackground = UIColor(named: "AppSliderBackground") ?? .gray
+        
         let circularSlider = CircularSlider()
         circularSlider.minimumValue = 0.0
         circularSlider.maximumValue = 60.0
         circularSlider.endPointValue = currentValue
         circularSlider.diskColor = .clear
         circularSlider.backgroundColor = .clear
-        circularSlider.tintColor = .black;
-        circularSlider.trackColor = .systemGray3;
-        circularSlider.trackFillColor = .black
-        circularSlider.trackShadowColor = .gray
+        circularSlider.tintColor = selectedColor;
+        circularSlider.trackColor = sliderBackground;
         
-        circularSlider.lineWidth = 14
-        circularSlider.backtrackLineWidth = 13;
+        circularSlider.trackShadowColor = sliderBackground
         
-        circularSlider.endThumbStrokeColor = .black
-        circularSlider.endThumbTintColor = .black
+        circularSlider.lineWidth = 25
+        circularSlider.backtrackLineWidth = 24;
+        
+        circularSlider.endThumbStrokeColor = selectedColor
+        circularSlider.endThumbTintColor = selectedColor
+        circularSlider.endThumbStrokeHighlightedColor = selectedColor
+        circularSlider.trackFillColor = selectedColor
         
         
         circularSlider.addTarget(
