@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03304FAC047F5C2ADF25AFFC /* Pods_No.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF516C229A28F8E6D573F3AE /* Pods_No.framework */; };
 		86944DE423D323C40031743A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DE323D323C40031743A /* AppDelegate.swift */; };
 		86944DE623D323C40031743A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DE523D323C40031743A /* SceneDelegate.swift */; };
 		86944DE823D323C40031743A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DE723D323C40031743A /* ContentView.swift */; };
@@ -15,6 +16,7 @@
 		86944DF023D323C80031743A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86944DEE23D323C80031743A /* LaunchScreen.storyboard */; };
 		86944DF823D325720031743A /* HelloWorldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DF723D325720031743A /* HelloWorldTest.swift */; };
 		86944DFB23D32C240031743A /* TempleBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86944DFA23D32C240031743A /* TempleBell.mp3 */; };
+		8696728323D386F3008E5CD4 /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696728223D386F3008E5CD4 /* CircularSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,10 @@
 		86944DF123D323C80031743A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86944DF723D325720031743A /* HelloWorldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldTest.swift; sourceTree = "<group>"; };
 		86944DFA23D32C240031743A /* TempleBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TempleBell.mp3; sourceTree = "<group>"; };
+		8696728223D386F3008E5CD4 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularSliderView.swift; path = No/CircularSliderView.swift; sourceTree = SOURCE_ROOT; };
+		CF516C229A28F8E6D573F3AE /* Pods_No.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_No.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE91CF7DE5CDC6E843A80D27 /* Pods-No.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-No.debug.xcconfig"; path = "Target Support Files/Pods-No/Pods-No.debug.xcconfig"; sourceTree = "<group>"; };
+		DF328F5966F33AA41BD37C9A /* Pods-No.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-No.release.xcconfig"; path = "Target Support Files/Pods-No/Pods-No.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03304FAC047F5C2ADF25AFFC /* Pods_No.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B8752496C071F563DBB1317 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF516C229A28F8E6D573F3AE /* Pods_No.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		86944DD723D323C40031743A = {
 			isa = PBXGroup;
 			children = (
 				86944DE223D323C40031743A /* No */,
 				86944DE123D323C40031743A /* Products */,
+				B8490339CCFA679467B5F062 /* Pods */,
+				5B8752496C071F563DBB1317 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +77,7 @@
 		86944DE223D323C40031743A /* No */ = {
 			isa = PBXGroup;
 			children = (
+				8696728223D386F3008E5CD4 /* CircularSliderView.swift */,
 				86944DF923D32BF50031743A /* Sounds */,
 				86944DE323D323C40031743A /* AppDelegate.swift */,
 				86944DE523D323C40031743A /* SceneDelegate.swift */,
@@ -89,6 +107,15 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		B8490339CCFA679467B5F062 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE91CF7DE5CDC6E843A80D27 /* Pods-No.debug.xcconfig */,
+				DF328F5966F33AA41BD37C9A /* Pods-No.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86944DF423D323C80031743A /* Build configuration list for PBXNativeTarget "No" */;
 			buildPhases = (
+				EBEBCE9C41EA72E9AD65740A /* [CP] Check Pods Manifest.lock */,
 				86944DDC23D323C40031743A /* Sources */,
 				86944DDD23D323C40031743A /* Frameworks */,
 				86944DDE23D323C40031743A /* Resources */,
+				40F039FEEBC35CFD77F34836 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +185,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40F039FEEBC35CFD77F34836 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-No/Pods-No-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-No/Pods-No-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-No/Pods-No-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBEBCE9C41EA72E9AD65740A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-No-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		86944DDC23D323C40031743A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -164,6 +235,7 @@
 				86944DE423D323C40031743A /* AppDelegate.swift in Sources */,
 				86944DE623D323C40031743A /* SceneDelegate.swift in Sources */,
 				86944DF823D325720031743A /* HelloWorldTest.swift in Sources */,
+				8696728323D386F3008E5CD4 /* CircularSliderView.swift in Sources */,
 				86944DE823D323C40031743A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +370,7 @@
 		};
 		86944DF523D323C80031743A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE91CF7DE5CDC6E843A80D27 /* Pods-No.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,12 +385,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dvisagie.No;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		86944DF623D323C80031743A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF328F5966F33AA41BD37C9A /* Pods-No.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -332,7 +406,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dvisagie.No;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

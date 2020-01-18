@@ -37,8 +37,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            CircularSliderView()
             Button(action: playGong) {
                 Text("Play Gong")
+               
             }
         }
     }
