@@ -10,8 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var greetingText = "HelloWorld"
-    @State var start: CGFloat = 25.0
+    @State var time: CGFloat = 25.0
     let temple = Temple()
+    @State var timer: Timer?
     
     var body: some View {
         ZStack {
@@ -20,11 +21,11 @@ struct ContentView: View {
         
             VStack() {
                 Spacer()
-                CircularSliderView(currentValue: $start)
+                CircularSliderView(currentValue: $time)
                     .frame(height: 320)
                     .frame(width: 320)
                     
-                Text("\(start, specifier: "%.0f")")
+                Text("\(time, specifier: "%.0f")")
                     .foregroundColor(Color("AppForeground"))
                     .padding(.vertical)
                     .padding(.top, -195.0)
@@ -40,7 +41,19 @@ struct ContentView: View {
     }
     
     func playGong() -> Void {
-        temple.playGong()
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            
+            /// If the timer has reached 0, then invalidate it
+            if self.time < 1 {
+                self.temple.playGong()
+                self.timer?.invalidate()
+                self.time = 0
+                return
+            }
+              
+            /// Otherwise decrement the counter
+            self.time -= 1
+        })
     }
 }
 
