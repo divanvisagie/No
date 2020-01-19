@@ -29,7 +29,7 @@ struct CircularSliderView : UIViewRepresentable {
         
         let circularSlider = CircularSlider()
         circularSlider.minimumValue = 0.0
-        circularSlider.maximumValue = 60.0
+        circularSlider.maximumValue = 60.0 * 60
         circularSlider.endPointValue = currentValue
         circularSlider.diskColor = .clear
         circularSlider.backgroundColor = .clear

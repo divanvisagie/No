@@ -7,11 +7,14 @@
 //
 
 import SwiftUI
+import HealthKit
 
 struct ContentView: View {
     @State var greetingText = "HelloWorld"
-    @State var time: CGFloat = 25.0
+    @State var time: CGFloat = 25.0 * 60
     @State var timer: Timer?
+    
+    let healthStore = HKHealthStore()
     
     let temple = Temple()
     
@@ -26,7 +29,7 @@ struct ContentView: View {
                     .frame(height: 320)
                     .frame(width: 320)
                     
-                Text("\(time, specifier: "%.0f")")
+                Text("\(time / 60, specifier: "%.0f")")
                     .foregroundColor(Color("AppForeground"))
                     .padding(.vertical)
                     .padding(.top, -195.0)
@@ -42,19 +45,64 @@ struct ContentView: View {
     }
     
     func playGong() -> Void {
+        activateHealthKit()
+        let startTime = Date()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             
-            /// If the timer has reached 0, then invalidate it
             if self.time < 1 {
+                let endTime = Date()
                 self.temple.playGong()
                 self.timer?.invalidate()
                 self.time = 0
+                
+                self.saveSessionToHealthKit(startTime: startTime, endTime: endTime)
                 return
             }
-              
-            /// Otherwise decrement the counter
+            
             self.time -= 1
         })
+    }
+    
+    func saveSessionToHealthKit(startTime: Date, endTime: Date) {
+        if let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) {
+            let mindfullSample = HKCategorySample(type: mindfulType, value: 0, start: startTime, end: endTime)
+            healthStore.save(mindfullSample, withCompletion: { (success, error) -> Void in
+
+                if error != nil {
+                   // something happened
+                   return
+                }
+
+                if success {
+                   print("My new data was saved in HealthKit")
+                   
+                } else {
+                   // something happened again
+                }
+
+            })
+        }
+    }
+    
+    func activateHealthKit() {
+        let typestoRead = Set([
+               HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.mindfulSession)!
+               ])
+           
+         let typestoShare = Set([
+               HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.mindfulSession)!
+               ])
+        
+           self.healthStore.requestAuthorization(toShare: typestoShare, read: nil) { (success, error) -> Void in
+               if success == false {
+                print("solve this error\(String(describing: error))")
+                   NSLog(" Display not allowed")
+               }
+               if success == true {
+                   print("dont worry everything is good \(success)")
+                   NSLog(" Integrated SuccessFully")
+               }
+         }
     }
 }
 

@@ -12,6 +12,14 @@ import AVFoundation
 
 class Temple {
     var sound: AVAudioPlayer!
+    init() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.playback, options: .duckOthers)
+        } catch {
+            print("AVAudioSession cannot be set")
+        }
+    }
     
     func playGong() {
         print("Temple wants to play gong")
