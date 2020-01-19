@@ -7,34 +7,12 @@
 //
 
 import SwiftUI
-import AVFoundation
 
-
-class Temple {
-    var sound: AVAudioPlayer!
-    
-    func playGong() {
-        print("Temple wants to play gong")
-        if let path = Bundle.main.path(forResource: "TempleBell", ofType: "mp3") {
-            do {
-                sound = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                print("Playing sound")
-                sound.play()
-            } catch {
-                print( "Could not find file")
-            }
-        } else {
-            print("We have failed")
-        }
-    }
-}
 
 struct ContentView: View {
     @State var greetingText = "HelloWorld"
     @State var start: CGFloat = 25.0
     let temple = Temple()
-    
-    
     
     var body: some View {
         VStack {

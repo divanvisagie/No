@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03304FAC047F5C2ADF25AFFC /* Pods_No.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF516C229A28F8E6D573F3AE /* Pods_No.framework */; };
+		868219D723D45B9C00EE2AF9 /* Temple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868219D623D45B9C00EE2AF9 /* Temple.swift */; };
+		868219DA23D45CA100EE2AF9 /* IconGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868219D923D45CA100EE2AF9 /* IconGeneratorView.swift */; };
 		86944DE423D323C40031743A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DE323D323C40031743A /* AppDelegate.swift */; };
 		86944DE623D323C40031743A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DE523D323C40031743A /* SceneDelegate.swift */; };
 		86944DE823D323C40031743A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86944DE723D323C40031743A /* ContentView.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		868219D623D45B9C00EE2AF9 /* Temple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temple.swift; sourceTree = "<group>"; };
+		868219D923D45CA100EE2AF9 /* IconGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGeneratorView.swift; sourceTree = "<group>"; };
 		86944DE023D323C40031743A /* No.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = No.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86944DE323D323C40031743A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86944DE523D323C40031743A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +34,7 @@
 		86944DF123D323C80031743A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86944DF723D325720031743A /* HelloWorldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldTest.swift; sourceTree = "<group>"; };
 		86944DFA23D32C240031743A /* TempleBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TempleBell.mp3; sourceTree = "<group>"; };
-		8696728223D386F3008E5CD4 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularSliderView.swift; path = No/CircularSliderView.swift; sourceTree = SOURCE_ROOT; };
+		8696728223D386F3008E5CD4 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularSliderView.swift; path = No/Views/CircularSliderView.swift; sourceTree = SOURCE_ROOT; };
 		CF516C229A28F8E6D573F3AE /* Pods_No.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_No.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE91CF7DE5CDC6E843A80D27 /* Pods-No.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-No.debug.xcconfig"; path = "Target Support Files/Pods-No/Pods-No.debug.xcconfig"; sourceTree = "<group>"; };
 		DF328F5966F33AA41BD37C9A /* Pods-No.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-No.release.xcconfig"; path = "Target Support Files/Pods-No/Pods-No.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +60,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		868219D523D45B7A00EE2AF9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				868219D623D45B9C00EE2AF9 /* Temple.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		868219D823D45C0900EE2AF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86944DE723D323C40031743A /* ContentView.swift */,
+				8696728223D386F3008E5CD4 /* CircularSliderView.swift */,
+				868219D923D45CA100EE2AF9 /* IconGeneratorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		86944DD723D323C40031743A = {
 			isa = PBXGroup;
 			children = (
@@ -77,11 +99,11 @@
 		86944DE223D323C40031743A /* No */ = {
 			isa = PBXGroup;
 			children = (
-				8696728223D386F3008E5CD4 /* CircularSliderView.swift */,
+				868219D823D45C0900EE2AF9 /* Views */,
+				868219D523D45B7A00EE2AF9 /* Services */,
 				86944DF923D32BF50031743A /* Sounds */,
 				86944DE323D323C40031743A /* AppDelegate.swift */,
 				86944DE523D323C40031743A /* SceneDelegate.swift */,
-				86944DE723D323C40031743A /* ContentView.swift */,
 				86944DE923D323C80031743A /* Assets.xcassets */,
 				86944DEE23D323C80031743A /* LaunchScreen.storyboard */,
 				86944DF123D323C80031743A /* Info.plist */,
@@ -232,11 +254,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868219D723D45B9C00EE2AF9 /* Temple.swift in Sources */,
 				86944DE423D323C40031743A /* AppDelegate.swift in Sources */,
 				86944DE623D323C40031743A /* SceneDelegate.swift in Sources */,
 				86944DF823D325720031743A /* HelloWorldTest.swift in Sources */,
 				8696728323D386F3008E5CD4 /* CircularSliderView.swift in Sources */,
 				86944DE823D323C40031743A /* ContentView.swift in Sources */,
+				868219DA23D45CA100EE2AF9 /* IconGeneratorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
