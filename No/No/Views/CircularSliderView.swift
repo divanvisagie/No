@@ -24,7 +24,8 @@ struct CircularSliderView : UIViewRepresentable {
     func makeUIView(context: Context) -> CircularSlider {
         
         let selectedColor = UIColor(named: "AppForeground") ?? .black;
-        let sliderBackground = UIColor(named: "AppSliderBackground") ?? .gray
+        let sliderBackgroundColor = UIColor(named: "AppSliderBackground") ?? .gray
+        let orangeColor = UIColor(named: "Orange") ?? .orange
         
         let circularSlider = CircularSlider()
         circularSlider.minimumValue = 0.0
@@ -33,15 +34,16 @@ struct CircularSliderView : UIViewRepresentable {
         circularSlider.diskColor = .clear
         circularSlider.backgroundColor = .clear
         circularSlider.tintColor = selectedColor;
-        circularSlider.trackColor = sliderBackground;
+        circularSlider.trackColor = sliderBackgroundColor
         
-        circularSlider.trackShadowColor = sliderBackground
+        circularSlider.trackShadowColor = sliderBackgroundColor
         
-        circularSlider.lineWidth = 25
-        circularSlider.backtrackLineWidth = 24;
+        circularSlider.lineWidth = 32
+        circularSlider.backtrackLineWidth = 31;
         
         circularSlider.endThumbStrokeColor = selectedColor
         circularSlider.endThumbTintColor = selectedColor
+        circularSlider.endThumbTintColor = orangeColor
         circularSlider.endThumbStrokeHighlightedColor = selectedColor
         circularSlider.trackFillColor = selectedColor
         
@@ -76,10 +78,16 @@ struct CircularSliderView : UIViewRepresentable {
 struct CircularSliderView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CircularSliderView(currentValue: .constant(25.0))
-            .frame(width: 250, height: 250, alignment: .center)
-            .previewLayout(.sizeThatFits)
-            .fixedSize(horizontal: true, vertical: true)
+        ZStack {
+            Color("AppBackground")
+                .edgesIgnoringSafeArea(.all)
+            CircularSliderView(currentValue: .constant(25.0))
+          
+           
+        }
+        .frame(width: 250, height: 250,
+               alignment: .center)
+                  .previewLayout(.sizeThatFits)
     }
 }
 #endif
