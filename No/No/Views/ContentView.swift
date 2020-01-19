@@ -11,8 +11,9 @@ import SwiftUI
 struct ContentView: View {
     @State var greetingText = "HelloWorld"
     @State var time: CGFloat = 25.0
-    let temple = Temple()
     @State var timer: Timer?
+    
+    let temple = Temple()
     
     var body: some View {
         ZStack {
